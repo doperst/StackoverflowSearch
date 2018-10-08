@@ -1,0 +1,43 @@
+.question {
+    height: 150px;
+    background: #393e46;
+    margin-bottom: 5px;
+}
+
+.question_title_container {
+    height: 80px;
+    color: #00adb5;
+}
+
+.question_title {
+    padding-top: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 70px;
+    cursor: pointer;
+}
+
+.question_answers {
+    line-height: 80px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.question_tag {
+    margin-right: 10px;
+    background: #00adb5;
+    padding: 0 5px;
+    display: inline-block;
+}
+
+a {
+    color: #eeeeee;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+
+/* .sort-btn {
+    width: 100%;
+} */

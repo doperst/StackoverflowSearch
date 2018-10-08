@@ -1,0 +1,46 @@
+<div class="sorting">
+    <div class="row">
+        <div class="col-sm-3">
+            <span>Сортировка: </span>
+        </div>
+        <div class="col-sm-4">
+            <select class="form-control" [(ngModel)]="selectedByOption" (change)="sortChanged()">
+                <option *ngFor="let sortBy of sortByOptions" value={{sortBy.Value}}>
+                    {{sortBy.DisplayName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <select class="form-control" [(ngModel)]="selectedDirOption" (change)="sortChanged()">
+                <option *ngFor="let sortDir of sortDirOptions" value={{sortDir.Value}}>
+                    {{sortDir.DisplayName}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<nav>
+    <span>Страницы: </span>
+    <button class="btn btn-primary" (click)="previousPage()" *ngIf="page > 1">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+    <button class="btn btn-primary" (click)="nextPage()">
+        <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+</nav>
+<div class="row question" *ngFor="let item of questions | async">
+    <div class="col-sm-12">
+        <div class="row question_title_container" [routerLink]="['/answers', item.question_id]">
+            <h4 class="col-sm-10 question_title" [innerHTML]="item.title"></h4>
+            <div class="col-sm-2 text-center question_answers">{{item.answer_count}}</div>
+        </div>
+        <div class="row question_author_info" [ngSwitch]="allowSubNavigation">
+            <div class="col-sm-12" *ngSwitchCase="'true'">Автор: <a class="question_author" [routerLink]="['author', item.owner.user_id]">{{item.owner.display_name}}</a></div>
+            <div class="col-sm-12" *ngSwitchCase="'false'">Автор: <span class="question_author">{{item.owner.display_name}}</span></div>
+        </div>
+        <div class="row question_tags" [ngSwitch]="allowSubNavigation">
+            <div class="col-sm-12" *ngSwitchCase="'true'">Теги: <a class="question_tag" *ngFor="let tag of item.tags" [routerLink]="['tag', tag]">{{tag}}</a></div>
+            <div class="col-sm-12" *ngSwitchCase="'false'">Теги: <span class="question_tag" *ngFor="let tag of item.tags">{{tag}}</span></div>
+        </div>
+    </div>
+</div>

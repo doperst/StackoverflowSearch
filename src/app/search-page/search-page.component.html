@@ -1,0 +1,7 @@
+<div class="container">
+    <form class="form-inline text-center">
+        <input name="searchStr" class="form-control" [(ngModel)]="searchStr" />
+        <button class="btn btn-success" routerLink="/search-result/{{searchStr}}">Искать</button>
+        <button class="btn btn-primary" routerLink="/login">Выход</button>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <nav>
+            <button routerLink="../../search" class="btn btn-primary">Новый поиск</button>
+            <button routerLink="../../login" class="btn btn-primary logout">Выход</button>
+        </nav>
+        <div class="col-sm-6 search-results">
+            <p class="search-title">Результаты поиска для <span class="search_string">{{searchStr}}</span></p>
+            <questions-table allowSubNavigation="true" [queryFunction]="getQuestions"></questions-table>
+        </div>
+        <div class="col-sm-6" [@routeAnimation]="getAnimationData(routerOutlet)">
+            <router-outlet #routerOutlet="outlet"></router-outlet>
+        </div>
+    </div>
+</div>

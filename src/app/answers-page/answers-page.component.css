@@ -1,0 +1,13 @@
+.question_title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.answer {
+    background: #393e46;
+    margin-bottom: 5px;
+}
+
+.logout {
+    float: right;
+}

@@ -1,0 +1,11 @@
+<div class="container">
+    <nav>
+        <button routerLink="../../search" class="btn btn-primary">Новый поиск</button>
+        <button routerLink="../../login" class="btn btn-primary logout">Выход</button>
+    </nav>
+    <div>Ответы на вопрос: <span class="question_title" [innerHTML]="(response | async)?.title"></span></div>
+    <div class="question_body" [innerHTML]="(response | async)?.body"></div>
+    <div class="row answer" *ngFor="let answer of (response | async)?.answers">
+        <div class="col-sm-12" [innerHTML]="answer.body"></div>
+    </div>
+</div>
